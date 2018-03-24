@@ -33,6 +33,7 @@ public class Reader {
 	}
 
 	private  ArrayList<ArrayList<Integer>> getMatrix() {
+		matrix.stream().forEach(System.out::println);
 		return matrix;
 	}
 
