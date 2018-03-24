@@ -15,19 +15,25 @@ public class Sequencial {
 
 	private void execute() {
 		Integer[][] matrixC = new Integer[matrixA.length][matrixA.length];
-		int i, j;
-		System.out.println("=== Matrix C ===");
-		for(i=0;i<matrixA.length;i++){
-	        for(j=0;j<matrixA.length;j++)
-	            matrixC[i][j]=(matrixA[i][j]*matrixB[j][i]);
+		
+		System.out.println("---------Matriz C----------");
+		
+		for(int i=0;i<matrixA.length;i++) {
+			for(int j=0;j<matrixA.length;j++) {
+				matrixC[i][j] = 0;
+				for(int k=0;k<matrixA.length;k++) {
+					matrixC[i][j]+=(matrixA[i][k]*matrixB[k][j]);
+				}
+			}
 	    }
 		
-		
-		for (i = 0; i < matrixC.length; i++) {
-			for (j = 0; j < matrixC.length; j++) {
-				System.out.print(matrixC[i][j]);
+		for (int i = 0; i < matrixC.length; i++) {
+			System.out.print("[");
+			for (int j = 0; j < matrixC.length; j++) {
+				String aux = j == matrixC.length-1? "]\n" : ", ";
+				System.out.print(matrixC[i][j] + aux);
 			}
-			System.out.println("");
+			
 		}
 		
 	}
