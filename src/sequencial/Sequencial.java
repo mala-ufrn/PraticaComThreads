@@ -13,7 +13,22 @@ public class Sequencial {
 		execute();
 	}
 
-	public void execute() {
+	private void execute() {
+		Integer[][] matrixC = new Integer[matrixA.length][matrixA.length];
+		int i, j;
+		System.out.println("=== Matrix C ===");
+		for(i=0;i<matrixA.length;i++){
+	        for(j=0;j<matrixA.length;j++)
+	            matrixC[i][j]=(matrixA[i][j]*matrixB[j][i]);
+	    }
+		
+		
+		for (i = 0; i < matrixC.length; i++) {
+			for (j = 0; j < matrixC.length; j++) {
+				System.out.print(matrixC[i][j]);
+			}
+			System.out.println("");
+		}
 		
 	}
 }
