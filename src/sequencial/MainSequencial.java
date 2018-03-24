@@ -8,8 +8,8 @@ import utils.Reader;
 public class MainSequencial {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
-		Reader r = new Reader("Matrizes/A4x4.txt", 4);
-		
+		Reader r = new Reader("Matrizes/A4x4.txt");
+		r.readFile();
 	}
 
 }

@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class Reader {
 
 	private String path;
-	private ArrayList<ArrayList<Integer>> matrix;
+	private ArrayList<ArrayList<Integer>> matrix = new ArrayList<ArrayList<Integer>>();
 
 	public Reader(String fileName) {
 		this.path = fileName;
