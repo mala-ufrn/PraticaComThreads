@@ -1,11 +1,10 @@
 package main;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import sequencial.Sequencial;
 import utils.Reader;
+import utils.Writer;
 
 public class Main {
 
@@ -13,29 +12,34 @@ public class Main {
 
 		String resource1 = "matrizes/A" + args[0] + "x" + args[0] + ".txt";
 		String resource2 = "matrizes/B" + args[0] + "x" + args[0] + ".txt";
+		String targetFile = "resultado/C" + args[0] + "x" + args[0] + ".txt";
+		
 		ArrayList<ArrayList<Integer>> matrixA = null;
 		ArrayList<ArrayList<Integer>> matrixB = null;
 		ArrayList<ArrayList<Integer>> matrixC = null;
 
 		Reader reader1 = new Reader(resource1);
 		Reader reader2 = new Reader(resource2);
+		
+		Writer writer = new Writer(targetFile);
 
 		try {
-			System.out.println("----Matriz A----");
 			matrixA = reader1.readFile();
-			System.out.println("----Matriz B----");
 			matrixB = reader2.readFile();
 
 			switch (args[1]) {
 			case "S":
 				Sequencial sequencial = new Sequencial();
-				sequencial.multiplicar(matrixA, matrixB);
+				matrixC = sequencial.multiplicar(matrixA, matrixB);
 				break;
 			case "C":
 				// TODO Estratégia Concorrente
 			default:
 				System.out.println("O que você está fazendo?");
 			}
+			
+			writer.writeFile(matrixC);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
