@@ -1,5 +1,6 @@
 package main;
 
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,6 +22,16 @@ public class Main {
 			ArrayList<ArrayList<Integer>> matrix2 = reader2.readFile();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+		
+		switch (args[1]) {
+		case "S":
+			//TODO Estratégia Sequencial
+			break;
+		case "C":
+			//TODO Estratégia Concorrente
+		default:
+			System.out.println("O que você está fazendo?");
 		}
 	}
 
