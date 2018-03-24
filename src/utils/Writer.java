@@ -15,8 +15,7 @@ public class Writer {
 	}
 	
 	public  void writeFile(ArrayList<ArrayList<Integer>> matrix) throws IOException {
-		try (BufferedWriter writer = new BufferedWriter(new PrintWriter(new FileWriter(path))))
-		{
+		try (BufferedWriter writer = new BufferedWriter(new PrintWriter(new FileWriter(path)))) {
 			writer.write(matrix.size() + " " + matrix.size() + "\n");
 			for (ArrayList<Integer> array : matrix) {
 				for (int i = 0; i < array.size(); i++) {
