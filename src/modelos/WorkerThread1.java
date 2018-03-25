@@ -15,18 +15,9 @@ public class WorkerThread1 extends Thread {
 	
 	@Override
 	public void run() {
-<<<<<<< HEAD:src/modelos/WorkerThread.java
-		
 		matrixC[i][j] = 0;
 		for(int k=0;k<matrixA.length;k++) {
 			matrixC[i][j]+=(matrixA[i][k]*matrixB[k][j]);
 		}
-		
-         
-=======
-		for(int k=0;k<matrixA.length;k++) {
-			matrixC[i][j]+=(matrixA[i][k]*matrixB[k][j]);
-		}
->>>>>>> master:src/modelos/WorkerThread1.java
     } 
 }

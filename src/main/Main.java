@@ -2,9 +2,10 @@ package main;
 
 import java.util.ArrayList;
 
-import modelos.Concorrente;
-import modelos.Sequencial;
 import threadsfixo.ConcorrenteFixo;
+import modelos.ConcorrenteQuadrado;
+import modelos.ConcorrenteLinear;
+import modelos.Sequencial;
 import utils.Reader;
 import utils.Writer;
 
@@ -41,6 +42,10 @@ public class Main {
 			case "C2":
 				ConcorrenteLinear concorrenteLinear = new ConcorrenteLinear();
 				matrixC = concorrenteLinear.multiplicar(matrixA, matrixB);
+				break;
+			case "C3":
+				ConcorrenteFixo concorrenteFixo = new ConcorrenteFixo();
+				matrixC = concorrenteFixo.multiplicar(matrixA, matrixB);
 				break;
 			default:
 				System.out.println("O que você está fazendo?");

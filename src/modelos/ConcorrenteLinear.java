@@ -13,12 +13,16 @@ public class ConcorrenteLinear {
 		this.matrixA = matrixA.stream().map(u -> u.toArray(new Integer[0])).toArray(Integer[][]::new);
 		this.matrixB = matrixB.stream().map(u -> u.toArray(new Integer[0])).toArray(Integer[][]::new);
 
-		// TODO pegar o tempo de início e fim
+		long startTime = System.nanoTime();
+		
 		try {
 			execute();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		
+		long endTime = System.nanoTime();
+		System.out.println("Tempo de execucao da: "+ (endTime - startTime) / 1000000 + " miliseconds.");
 
 		return getResultArray();
 	}

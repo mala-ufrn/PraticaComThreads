@@ -14,11 +14,12 @@ public class Sequencial {
 		this.matrixA = matrixA.stream().map(u -> u.toArray(new Integer[0])).toArray(Integer[][]::new);
 		this.matrixB = matrixB.stream().map(u -> u.toArray(new Integer[0])).toArray(Integer[][]::new);
 		
-		//TODO pegar o tempo de inÃ­cio e fim
 		long startTime = System.nanoTime();
+		
 		execute();
+		
 		long endTime = System.nanoTime();
-		System.out.println("Tempo de execução: " + (endTime - startTime)/1000000 + " miliseconds." );
+		System.out.println("Tempo de execuï¿½ï¿½o: " + (endTime - startTime)/1000000 + " miliseconds." );
 		return getResultArray();
 	}
 
