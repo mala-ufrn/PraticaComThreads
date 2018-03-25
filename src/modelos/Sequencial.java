@@ -1,4 +1,4 @@
-package sequencial;
+package modelos;
 
 import java.util.ArrayList;
 import java.util.Arrays;

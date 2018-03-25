@@ -2,7 +2,8 @@ package main;
 
 import java.util.ArrayList;
 
-import sequencial.Sequencial;
+import modelos.Concorrente;
+import modelos.Sequencial;
 import utils.Reader;
 import utils.Writer;
 
@@ -27,13 +28,15 @@ public class Main {
 			matrixA = reader1.readFile();
 			matrixB = reader2.readFile();
 
-			switch (args[1]) {
+			switch (args[1].toUpperCase()) {
 			case "S":
 				Sequencial sequencial = new Sequencial();
 				matrixC = sequencial.multiplicar(matrixA, matrixB);
 				break;
 			case "C":
-				// TODO Estratégia Concorrente
+				Concorrente concorrente = new Concorrente();
+				matrixC = concorrente.multiplicar(matrixA, matrixB);
+				break;
 			default:
 				System.out.println("O que você está fazendo?");
 			}
