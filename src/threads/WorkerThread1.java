@@ -1,4 +1,4 @@
-package modelos;
+package threads;
 
 public class WorkerThread1 extends Thread {
 	private int i, j;

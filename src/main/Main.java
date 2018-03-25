@@ -2,8 +2,8 @@ package main;
 
 import java.util.ArrayList;
 
-import threadsfixo.ConcorrenteFixo;
 import modelos.ConcorrenteQuadrado;
+import modelos.ConcorrenteFixo;
 import modelos.ConcorrenteLinear;
 import modelos.Sequencial;
 import utils.Reader;
