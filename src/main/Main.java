@@ -2,7 +2,8 @@ package main;
 
 import java.util.ArrayList;
 
-import modelos.Concorrente;
+import modelos.ConcorrenteLinear;
+import modelos.ConcorrenteQuadrado;
 import modelos.Sequencial;
 import utils.Reader;
 import utils.Writer;
@@ -33,12 +34,17 @@ public class Main {
 				Sequencial sequencial = new Sequencial();
 				matrixC = sequencial.multiplicar(matrixA, matrixB);
 				break;
-			case "C":
-				Concorrente concorrente = new Concorrente();
-				matrixC = concorrente.multiplicar(matrixA, matrixB);
+			case "C1":
+				ConcorrenteQuadrado concorrenteQuadrado = new ConcorrenteQuadrado();
+				matrixC = concorrenteQuadrado.multiplicar(matrixA, matrixB);
+				break;
+			case "C2":
+				ConcorrenteLinear concorrenteLinear = new ConcorrenteLinear();
+				matrixC = concorrenteLinear.multiplicar(matrixA, matrixB);
 				break;
 			default:
 				System.out.println("O que você está fazendo?");
+				System.exit(0);
 			}
 			
 			writer.writeFile(matrixC);

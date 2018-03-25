@@ -1,11 +1,11 @@
 package modelos;
 
-public class WorkerThread extends Thread {
+public class WorkerThread1 extends Thread {
 	private int i, j;
 	private Integer[][] matrixA,matrixB, matrixC;
 	
 	
-	public WorkerThread(int i, int j, Integer[][] matrixA, Integer[][] matrixB, Integer[][] matrixC) {
+	public WorkerThread1(int i, int j, Integer[][] matrixA, Integer[][] matrixB, Integer[][] matrixC) {
 		this.i= i;
 		this.j = j;
 		this.matrixA = matrixA;
@@ -13,13 +13,10 @@ public class WorkerThread extends Thread {
 		this.matrixC = matrixC;
 	}
 	
-	
+	@Override
 	public void run() {
-		System.out.println("Thread executando: " +getName());
 		for(int k=0;k<matrixA.length;k++) {
 			matrixC[i][j]+=(matrixA[i][k]*matrixB[k][j]);
 		}
-         
     } 
-
 }
