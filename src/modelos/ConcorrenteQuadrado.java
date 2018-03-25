@@ -3,7 +3,7 @@ package modelos;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Concorrente {
+public class ConcorrenteQuadrado {
 
 	private Integer[][] matrixA;
 	private Integer[][] matrixB;
@@ -27,12 +27,12 @@ public class Concorrente {
 
 	private void execute() throws InterruptedException {
 		matrixC = new Integer[matrixA.length][matrixA.length];
-		WorkerThread[][] threads = new WorkerThread[matrixA.length][matrixA.length]; // Criando as threads
+		WorkerThread1[][] threads = new WorkerThread1[matrixA.length][matrixA.length]; // Criando as threads
 
 		for (int i = 0; i < matrixA.length; i++) {
 			for (int j = 0; j < matrixA.length; j++) {
 				matrixC[i][j] = 0;
-				threads[i][j] = new WorkerThread(i, j, matrixA, matrixB, matrixC);
+				threads[i][j] = new WorkerThread1(i, j, matrixA, matrixB, matrixC);
 				threads[i][j].start();
 			}
 		}

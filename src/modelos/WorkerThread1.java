@@ -1,11 +1,11 @@
 package modelos;
 
-public class WorkerThread extends Thread {
+public class WorkerThread1 extends Thread {
 	private int i, j;
 	private Integer[][] matrixA,matrixB, matrixC;
 	
 	
-	public WorkerThread(int i, int j, Integer[][] matrixA, Integer[][] matrixB, Integer[][] matrixC) {
+	public WorkerThread1(int i, int j, Integer[][] matrixA, Integer[][] matrixB, Integer[][] matrixC) {
 		this.i= i;
 		this.j = j;
 		this.matrixA = matrixA;
@@ -15,6 +15,7 @@ public class WorkerThread extends Thread {
 	
 	@Override
 	public void run() {
+<<<<<<< HEAD:src/modelos/WorkerThread.java
 		
 		matrixC[i][j] = 0;
 		for(int k=0;k<matrixA.length;k++) {
@@ -22,6 +23,10 @@ public class WorkerThread extends Thread {
 		}
 		
          
+=======
+		for(int k=0;k<matrixA.length;k++) {
+			matrixC[i][j]+=(matrixA[i][k]*matrixB[k][j]);
+		}
+>>>>>>> master:src/modelos/WorkerThread1.java
     } 
-
 }
