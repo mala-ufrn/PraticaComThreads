@@ -1,14 +1,14 @@
-package modelos;
+package threadsfixo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Concorrente {
-
+public class ConcorrenteFixo {
+	private final int NUMERO_THREADS = 4;
 	private Integer[][] matrixA;
 	private Integer[][] matrixB;
 	private Integer[][] matrixC;
-	WorkerThread[][] threads = null;
+	Thread[] threads = new Thread[NUMERO_THREADS] ;
 
 	public ArrayList<ArrayList<Integer>> multiplicar(ArrayList<ArrayList<Integer>> matrixA,
 			ArrayList<ArrayList<Integer>> matrixB) {
@@ -16,10 +16,21 @@ public class Concorrente {
 		this.matrixB = matrixB.stream().map(u -> u.toArray(new Integer[0])).toArray(Integer[][]::new);
 
 		this.matrixC = new Integer[this.matrixA.length][this.matrixA.length];
-		threads = new WorkerThread[this.matrixA.length][this.matrixA.length]; // Criando as threads
+		
+		for (int i = 0; i < this.matrixA.length; i++) {
+			for (int j = 0; j < this.matrixA.length; j++) {
+				this.matrixC[i][j] = 0;
+			}
+		}
 
 		// TODO pegar o tempo de início e fim
 		try {
+			
+			threads[0] = new WorkerThread1(this.matrixA, this.matrixB, this.matrixC);
+			threads[1] = new WorkerThread2(this.matrixA, this.matrixB, this.matrixC);
+			threads[2] = new WorkerThread3(this.matrixA, this.matrixB, this.matrixC);
+			threads[3] = new WorkerThread4(this.matrixA, this.matrixB, this.matrixC);
+			
 			long startTime = System.nanoTime();
 			execute();
 			long endTime = System.nanoTime();
@@ -34,18 +45,16 @@ public class Concorrente {
 	}
 
 	private void execute() throws InterruptedException {
-
-		for (int i = 0; i < matrixA.length; i++) {
-			for (int j = 0; j < matrixA.length; j++) {
-				threads[i][j] = new WorkerThread(i, j, matrixA, matrixB, matrixC);
-				threads[i][j].start();
-			}
-		}
-		for (int i = 0; i < matrixA.length; i++) {
-			for (int j = 0; j < matrixA.length; j++) {
-				threads[i][j].join();
-			}
-		}
+		threads[0].start();
+		threads[1].start();
+		threads[2].start();
+		threads[3].start();
+		
+		threads[0].join();
+		threads[1].join();
+		threads[2].join();
+		threads[3].join();
+		
 
 	}
 

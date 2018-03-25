@@ -13,12 +13,14 @@ public class WorkerThread extends Thread {
 		this.matrixC = matrixC;
 	}
 	
-	
+	@Override
 	public void run() {
-		System.out.println("Thread executando: " +getName());
+		
+		matrixC[i][j] = 0;
 		for(int k=0;k<matrixA.length;k++) {
 			matrixC[i][j]+=(matrixA[i][k]*matrixB[k][j]);
 		}
+		
          
     } 
 

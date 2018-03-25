@@ -2,8 +2,8 @@ package main;
 
 import java.util.ArrayList;
 
-import modelos.Concorrente;
 import modelos.Sequencial;
+import threadsfixo.ConcorrenteFixo;
 import utils.Reader;
 import utils.Writer;
 
@@ -34,7 +34,7 @@ public class Main {
 				matrixC = sequencial.multiplicar(matrixA, matrixB);
 				break;
 			case "C":
-				Concorrente concorrente = new Concorrente();
+				ConcorrenteFixo concorrente = new ConcorrenteFixo();
 				matrixC = concorrente.multiplicar(matrixA, matrixB);
 				break;
 			default:
