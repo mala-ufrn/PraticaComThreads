@@ -12,6 +12,7 @@ public class Writer {
 
 	public Writer(String filePath) {
 		this.path = filePath;
+		
 	}
 	
 	public  void writeFile(ArrayList<ArrayList<Integer>> matrix) throws IOException {
@@ -22,6 +23,12 @@ public class Writer {
 				    writer.write(array.get(i) + ((i == array.size()-1) ? "\n" : " "));
 				}
 			}
+		}
+	}
+	
+	public void writeMetrics(String result, String filepath) throws IOException {
+		try (BufferedWriter writer = new BufferedWriter(new PrintWriter(new FileWriter(filepath, true)))) {
+			writer.write(result);
 		}
 	}
 }
