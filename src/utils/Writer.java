@@ -26,8 +26,8 @@ public class Writer {
 		}
 	}
 	
-	public void writeMetrics(String result, String filepath) throws IOException {
-		try (BufferedWriter writer = new BufferedWriter(new PrintWriter(new FileWriter(filepath, true)))) {
+	public void writeFile(String result) throws IOException {
+		try (BufferedWriter writer = new BufferedWriter(new PrintWriter(new FileWriter(path, true)))) {
 			writer.write(result);
 		}
 	}
