@@ -42,9 +42,7 @@ public class Main {
 				break;
 			case "C1":
 				ConcorrenteQuadrado concorrenteQuadrado = new ConcorrenteQuadrado();
-				
-					matrixC = concorrenteQuadrado.multiplicar(matrixA, matrixB);
-
+				matrixC = concorrenteQuadrado.multiplicar(matrixA, matrixB);
 				break;
 			case "C2":
 				ConcorrenteLinear concorrenteLinear = new ConcorrenteLinear();
@@ -58,9 +56,10 @@ public class Main {
 				System.out.println("O que você está fazendo?");
 				System.exit(0);
 			}
-			writer.writeMetrics(printUsage(args), metricPath);
+			
 			writer.writeFile(matrixC);
-			System.out.println("Fim da execução.");
+			writer.writeMetrics(printUsage(args), metricPath);
+			//System.out.println("Fim da execução do modelo: " +args[0] +" "+args[1]);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -70,7 +69,7 @@ public class Main {
 	private static String printUsage(String[] args) {
 		OperatingSystemMXBean operatingSystemMXBean = ManagementFactory.getOperatingSystemMXBean();
 
-		StringBuilder out = new StringBuilder().append("tamanho: ").append(args[0]).append(" modelo: ").append(args[1]);
+		StringBuilder out = new StringBuilder().append(args[0]).append(";").append(args[1]);
 
 		for (Method method : operatingSystemMXBean.getClass().getDeclaredMethods()) {
 			method.setAccessible(true);
@@ -81,7 +80,7 @@ public class Main {
 				} catch (Exception e) {
 					value = e;
 				} // try
-				out.append(" ").append(method.getName()).append("= ").append(value);
+				out.append(";").append(value);
 
 			}
 		}
