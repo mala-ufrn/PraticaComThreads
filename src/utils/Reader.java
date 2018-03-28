@@ -14,7 +14,13 @@ public class Reader {
 	public Reader(String fileName) {
 		this.path = fileName;
 	}
-
+	
+	
+	/**
+	 * Método para leitura dos arquivos fonte disponibilizados
+	 * @return resultante ArrayList<ArrayList<Integer>> matrix lida. 
+	 * @throws IOException
+	 */
 	public  ArrayList<ArrayList<Integer>> readFile() throws IOException {
 		try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
 			reader.readLine(); // linha com parametros

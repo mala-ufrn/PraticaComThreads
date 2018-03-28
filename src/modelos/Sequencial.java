@@ -1,7 +1,15 @@
 package modelos;
 
+/**
+ * Classe para execução da multiplicação de matrizes no modelo Sequêncial
+ * @author Paulo & Hugo
+ *
+ */
 public class Sequencial extends MultiplicaMatrizes {
 	
+	/**
+	 * Multiplica matrixA x matrixB
+	 */
 	protected void execute() {
 		matrixC = new Integer[matrixA.length][matrixA.length];
 		

@@ -14,7 +14,11 @@ public class Writer {
 		this.path = filePath;
 		
 	}
-	
+	/**
+	 * Escreve em arquivo de texto a matrix produto. 
+	 * @param matrix
+	 * @throws IOException
+	 */
 	public  void writeFile(ArrayList<ArrayList<Integer>> matrix) throws IOException {
 		try (BufferedWriter writer = new BufferedWriter(new PrintWriter(new FileWriter(path)))) {
 			writer.write(matrix.size() + " " + matrix.size() + "\n");
@@ -25,9 +29,13 @@ public class Writer {
 			}
 		}
 	}
-	
-	public void writeMetrics(String result, String filepath) throws IOException {
-		try (BufferedWriter writer = new BufferedWriter(new PrintWriter(new FileWriter(filepath, true)))) {
+	/**
+	 * Escreve os tempos capturados para execução de cada operação.
+	 * @param result
+	 * @throws IOException
+	 */
+	public void writeFile(String result) throws IOException {
+		try (BufferedWriter writer = new BufferedWriter(new PrintWriter(new FileWriter(path, true)))) {
 			writer.write(result);
 		}
 	}

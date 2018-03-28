@@ -5,7 +5,9 @@ import threads.WorkerThread3;
 public class ConcorrenteFixo extends MultiplicaMatrizes {
 
 	private static final int NUMERO_THREADS = 4;
-
+	/**
+	 * Multiplica matrixA x matrixB atribuindo uma nova thread de acordo com @const NUMERO_THREADs 
+	 */
 	protected void execute() {
 		try {
 			matrixC = new Integer[matrixA.length][matrixA.length];

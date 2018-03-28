@@ -3,7 +3,9 @@ package modelos;
 import threads.WorkerThread2;
 
 public class ConcorrenteLinear extends MultiplicaMatrizes {
-
+	/**
+	 * Multiplica matrixA x matrixB atribuindo a cada linha da matriz uma nova thread.
+	 */
 	protected void execute() {
 
 		try {
